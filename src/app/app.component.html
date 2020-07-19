@@ -1,0 +1,87 @@
+<div class="wrapper">
+  <!-- Sidebar -->
+  <nav id="sidebar">
+      <div class="sidebar-header">
+          <img class="top-icon" src="assets/stop.svg" alt="" srcset="">
+      </div>
+
+      <ul class="list-unstyled components flex-i">
+          <li class="side-nav-li">
+              <a href="javascript:void(0)">
+                <!-- <img style="height:25px;" src="assets/home-run.svg" alt="" srcset=""> -->
+                <i class="fa fa-home nav-icon" aria-hidden="true"></i>
+              </a>
+          </li>
+          <li class="side-nav-li active">
+              <a href="javascript:void(0)">
+                <!-- <img style="height:25px;" src="assets/menu.svg" alt="" srcset=""> -->
+                <i class="fa fa-square-o nav-icon" aria-hidden="true"></i>
+              </a>
+          </li>
+          <li class="side-nav-li">
+              <a href="javascript:void(0)">
+                <!-- <img style="height:25px;" src="assets/calendar.svg" alt="" srcset=""> -->
+                <i class="fa fa-calendar nav-icon" aria-hidden="true"></i>
+              </a>
+          </li>
+          <li class="side-nav-li">
+            <a href="javascript:void(0)">
+              <!-- <img style="height:25px;" src="assets/comment.svg" alt="" srcset=""> -->
+              <i class="fa fa-comment-o nav-icon" aria-hidden="true"></i>
+            </a>
+        </li>
+        <li class="side-nav-li">
+          <a href="javascript:void(0)">
+            <!-- <img style="height:25px;" src="assets/comment.svg" alt="" srcset=""> -->
+            <i class="fa fa-clock-o nav-icon" aria-hidden="true"></i>
+          </a>
+      </li>
+      <li class="side-nav-li">
+        <a href="javascript:void(0)">
+          <!-- <img style="height:25px;" src="assets/comment.svg" alt="" srcset=""> -->
+          <i class="fa fa-user-o nav-icon" aria-hidden="true"></i>
+        </a>
+    </li>
+    <li class="side-nav-li">
+      <a href="javascript:void(0)">
+        <!-- <img style="height:25px;" src="assets/comment.svg" alt="" srcset=""> -->
+        <i class="fa fa-wrench nav-icon" aria-hidden="true"></i>
+      </a>
+  </li>
+      </ul>
+  </nav>
+      <!-- Page Content -->
+    <div id="content">
+        <!-- We'll fill this with dummy content -->
+        <div class="nav-line"></div>
+        <nav class="nav-fixed navbar navbar-expand-lg navbar-light bg-light">
+          <div class="container-fluid">
+            <div>
+              <i class="fa fa-long-arrow-left" style="margin-right:5px;" aria-hidden="true"></i>
+              All projects
+            </div>
+            <div style="font-size: 1.2rem;font-weight: 700;">Supermassive black hole <i class="fa fa-angle-down" aria-hidden="true"></i>
+            </div>
+            <div>
+              <button class="btn nav-btn-i"><i class="fa fa-search" aria-hidden="true"></i></button>
+              <button class="btn nav-btn-i"><i class="fa fa-bell-o" aria-hidden="true"></i>
+                <span class="badge badge-danger">3</span>
+
+                </button>
+              <button class="btn nav-btn-i" style="padding: 0px;border: 0;">
+                <img style="height: 38px;border-radius:10px;" src="assets/avatars/1.jpg" alt="" srcset="">
+              </button>
+            </div>
+              <!-- <button type="button" id="sidebarCollapse" class="btn btn-info">
+                  <i class="fas fa-align-left"></i>
+                  <span>Toggle Sidebar</span>
+              </button> -->
+  
+          </div>
+      </nav>
+        <router-outlet></router-outlet>
+    </div>
+
+
+
+</div>

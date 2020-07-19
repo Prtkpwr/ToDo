@@ -1,0 +1,131 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@ng-select/ng-select/themes/default.theme.css";
+body{
+    font-family: 'Roboto', sans-serif;
+    color: #505B69;
+    background-color: white;
+}
+h5{  
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+.mr-8{
+    margin-right : 8px;
+}
+.error-msg{
+    font-size: 0.8rem;
+    color: red;
+}
+.warning-tab{
+    color: #FFB861 !important; 
+    background-color: #FFEBC2 !important;
+}
+.floating-btn{
+    position: fixed; 
+    bottom:30px;
+    right:30px;
+}
+.tabs{
+    color: #9AA4B5;
+    border-radius: 5px;
+    background-color: #F1F2F4;
+    padding: 1px 5px;
+    margin-right:5px;
+    font-size: 0.8rem;
+}
+.tabs-green{
+    background-color: #22C993 !important;
+    color: #F1F2F4 !important;
+}
+.wrapper {
+    display: flex;
+    width: 100%;
+    /* align-items: stretch; */
+}
+#sidebar {
+    min-width: 54px;
+    max-width: 60px;
+    background-color: #0068FF;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    z-index: 999;
+    color: #fff;
+}
+
+#content{
+    margin-left: 50px;
+}
+.nav-fixed{
+    position: fixed;
+    z-index: 99;
+    width: calc(100vw - 50px);
+    height: 56px;
+    background-color: white !important;
+    -webkit-box-shadow: 0px 2px 2px 0px rgba(203,203,203,1);
+    -moz-box-shadow: 0px 2px 2px 0px rgba(203,203,203,1);
+    box-shadow: 0px 2px 2px 0px rgba(203,203,203,1);
+}
+.side-nav-li{
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+    margin-bottom: 5px;
+}
+.active{
+    background-color: #0655C7;
+}
+.side-nav-li:hover{
+    background-color: #0655C7;
+}
+.badge{
+    color:white;
+    background-color: #FF283B !important;
+    position: absolute !important;
+    top: 2px !important;
+    border-radius: 50% !important;
+}
+.nav-btn-i{
+    border-radius: 10px !important;
+    margin-left:8px;
+    -webkit-box-shadow: 0px 2px 2px 0px rgba(203,203,203,1);
+    -moz-box-shadow: 0px 2px 2px 0px rgba(203,203,203,1);
+    box-shadow: 0px 2px 2px 0px rgba(203,203,203,1);
+}
+.nav-line{
+    width: 70%;
+    height: 3px;
+    position: fixed;
+    background-color: #0E70FE;
+    top: 56px;
+    z-index: 100;
+}
+.top-icon{
+    height: 30px;
+    position: absolute;
+    top: 12px;
+    left: 12px;
+}
+.flex-i{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 120px;
+}
+.nav-icon{
+    color: white;
+}
+
+@media only screen and (max-width: 600px)  {
+    .nav-fixed{
+        display: none !important;
+    }
+    .nav-line{
+        display: none !important;
+    }
+  }

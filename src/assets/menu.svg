@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve" width="512px" height="512px"><g><g>
+	<g>
+		<g>
+			<path d="M226,0H60C26.916,0,0,26.916,0,60v166c0,11.046,8.954,20,20,20h206c11.046,0,20-8.954,20-20V20     C246,8.954,237.046,0,226,0z M206,206H40V60c0-11.028,8.972-20,20-20h146V206z" data-original="#000000" class="active-path" data-old_color="#000000" fill="#FFFFFF"/>
+			<path d="M226,266H20c-11.046,0-20,8.954-20,20v166c0,33.084,26.916,60,60,60h166c11.046,0,20-8.954,20-20V286     C246,274.954,237.046,266,226,266z M206,472H60c-11.028,0-20-8.972-20-20V306h166V472z" data-original="#000000" class="active-path" data-old_color="#000000" fill="#FFFFFF"/>
+			<path d="M452,0H286c-11.046,0-20,8.954-20,20v206c0,11.046,8.954,20,20,20h206c11.046,0,20-8.954,20-20V60     C512,26.916,485.084,0,452,0z M472,206H306V40h146c11.028,0,20,8.972,20,20V206z" data-original="#000000" class="active-path" data-old_color="#000000" fill="#FFFFFF"/>
+			<path d="M492,266H286c-11.046,0-20,8.954-20,20v206c0,11.046,8.954,20,20,20h166c33.084,0,60-26.916,60-60V286     C512,274.954,503.046,266,492,266z M472,452c0,11.028-8.972,20-20,20H306V306h166V452z" data-original="#000000" class="active-path" data-old_color="#000000" fill="#FFFFFF"/>
+		</g>
+	</g>
+</g></g> </svg>

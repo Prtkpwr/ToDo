@@ -1,0 +1,170 @@
+{"data":[
+    {
+        "name": "ToDo",
+        "record":false,
+        "details": [
+            {
+                "heading":"Prepare moodborad for website branding",
+                "image":"",
+                "date":"08/19/2020",
+                "files":[1,2],
+                "users":[1,2],
+                "priority":1,
+                "comments":[1,2,3]
+            },
+            {
+                "heading":"Create an announcement about product launch",
+                "image":"",
+                "date":"08/19/2020",
+                "files":[1],
+                "users":[3,8],
+                "priority":3,
+                "comments":[4,2,3]
+            },
+            {
+                "heading":"Prepare a moodboard for LP",
+                "image":"",
+                "date":"08/19/2020",
+                "files":[1,2,3,4],
+                "users":[6],
+                "priority":2,
+                "comments":[1,2,3]
+            },
+            {
+                "heading":"Final editions",
+                "image":"",
+                "date":"08/19/2020",
+                "files":[],
+                "users":[3,6],
+                "priority":1,
+                "comments":[]
+            }
+        ]
+    },
+    {
+        "name": "In progress",
+        "record":true,
+        "details": [
+            {
+                "heading":"Interview with users",
+                "image":"",
+                "date":"08/19/2020",
+                "files":[1,2,3],
+                "users":[],
+                "priority":2,
+                "comments":[]
+            },
+            {
+                "heading":"Search references for multicoloured background",
+                "image":"https://homepages.cae.wisc.edu/~ece533/images/arctichare.png",
+                "date":"08/19/2020",
+                "files":[1,2,3],
+                "users":[8,2],
+                "priority":2,
+                "comments":[1,2]
+            },
+            {
+                "heading":"Create UI kit for project",
+                "image":"",
+                "date":"08/19/2020",
+                "files":[1,2,3],
+                "users":[8,2],
+                "priority":1,
+                "comments":[1,2]
+            },
+            {
+                "heading":"Prepare detailed brief for devs & designers",
+                "image":"",
+                "date":"08/19/2020",
+                "files":[1,2,3],
+                "users":[8,2],
+                "priority":3,
+                "comments":[1,2]
+            }
+        ]
+    },
+    {
+        "name": "In review",
+        "record":false,
+        "details": [
+            {
+                "heading":"Describe the problem with supermassive black hole",
+                "image":"",
+                "date":"08/19/2020",
+                "files":[1,2,3],
+                "users":[8,2],
+                "priority":2,
+                "comments":[1,2]
+            },
+            {
+                "heading":"Facebook post about new case study on Behance",
+                "image":"",
+                "date":"08/19/2020",
+                "files":[1,2,3],
+                "users":[8,2],
+                "priority":3,
+                "comments":[1,2]
+            },
+            {
+                "heading":"Chatbot screens for app",
+                "image":"",
+                "date":"08/19/2020",
+                "files":[1,2,3],
+                "users":[8,2],
+                "priority":1,
+                "comments":[1,2]
+            },
+            {
+                "heading":"Read Hawking's a Brief History of Time",
+                "image":"",
+                "date":"08/19/2020",
+                "files":[1,2,3],
+                "users":[8,2],
+                "priority":1,
+                "comments":[1,2]
+            }
+        ]
+    },
+    {
+        "name": "Done",
+        "record":false,
+        "details": [
+            {
+                "heading":"Skype call with client",
+                "image":"",
+                "date":"08/19/2020",
+                "files":[1,2,3],
+                "users":[8,2],
+                "priority":1,
+                "comments":[1,2]
+            },
+            {
+                "heading":"Develope a design language for project",
+                "image":"",
+                "date":"08/19/2020",
+                "files":[1,2,3],
+                "users":[8,2],
+                "priority":2,
+                "comments":[1,2]
+            },
+            {
+                "heading":"Illustartion for hero section",
+                "image":"",
+                "date":"08/19/2020",
+                "files":[1,2,3],
+                "users":[8,2],
+                "priority":2,
+                "comments":[1,2]
+            },
+            {
+                "heading":"Read an article on black hole theory",
+                "image":"https://homepages.cae.wisc.edu/~ece533/images/airplane.png",
+                "date":"08/19/2020",
+                "files":[1,2,3],
+                "users":[5,2],
+                "priority":3,
+                "comments":[1,2]
+            }
+        ]
+    }
+]}
