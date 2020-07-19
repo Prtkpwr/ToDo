@@ -1,17 +1,8 @@
-import {
-  Component,
-  OnInit
-} from '@angular/core';
-import {
-  CdkDragDrop,
-  moveItemInArray,
-  transferArrayItem
-} from '@angular/cdk/drag-drop';
+import { Component, OnInit } from '@angular/core';
+import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 declare const $: any;
-import {
-  ToastrService
-} from 'ngx-toastr';
-import * as data from './data.json';
+import { ToastrService } from 'ngx-toastr';
+import * as content from './data.json';
 
 @Component({
   selector: 'app-to-do',
@@ -19,8 +10,8 @@ import * as data from './data.json';
   styleUrls: ['./to-do.component.css']
 })
 export class ToDoComponent implements OnInit {
-  today: any = "";
   data: any = [];
+  file:any;
   formError = false;
   users = [{
           "name": "Natasha",
@@ -59,7 +50,7 @@ export class ToDoComponent implements OnInit {
   inputData = {
       "heading": "",
       "image": "",
-      "date": this.today,
+      "date": "",
       "files": [],
       "users": [1],
       "priority": 1,
@@ -69,51 +60,26 @@ export class ToDoComponent implements OnInit {
   constructor(public toast: ToastrService) {}
 
   ngOnInit(): void {
-      let that = this;
-      $(".custom-file-input").on("change", function() {
-          var fileName = $(this).val().split("\\").pop();
-          $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
-          that.encodeImageFileAsURL(this)
-      });
       if (localStorage.getItem("todoData")) {
           this.data = JSON.parse(localStorage.getItem("todoData"));
       } else {
-          this.data = data.data;
+          this.data = content.data;
       }
-      this.toDaysDate();
+      this.initiate();
   }
-  toDaysDate() {
-      let today: any = new Date();
-      let dd: any = today.getDate();
 
-      let mm: any = today.getMonth() + 1;
-      let yyyy: any = today.getFullYear();
-      if (dd < 10) {
-          dd = '0' + dd;
-      }
-      if (mm < 10) {
-          mm = '0' + mm;
-      }
-      this.today = `${yyyy}/${mm}/${dd}`;
-  }
   encodeImageFileAsURL(element) {
       let that = this;
-      var file = element.files[0];
-      var reader = new FileReader();
+      let file = element.files[0];
+      let reader = new FileReader();
       reader.onloadend = function() {
-          console.log('RESULT', reader.result)
+        //   console.log('RESULT', reader.result)
           that.inputData.image = "" + reader.result;
       }
       reader.readAsDataURL(file);
   }
-  drag(event: CdkDragDrop < string[] > , i: number) {
-      console.log(event);
-      console.log(i)
 
-  }
-  drop(event: CdkDragDrop < string[] > , i: number) {
-      console.log(event);
-      console.log(i)
+  drop(event: CdkDragDrop < string[] >) {
       this.data[this.getIndexFromId(event.container.id)].details = event.container.data;
       this.data[this.getIndexFromId(event.previousContainer.id)].details = event.previousContainer.data;
       setTimeout(() => {
@@ -136,6 +102,15 @@ export class ToDoComponent implements OnInit {
       return false;
   }
 
+  initiate(){
+    let that = this;
+    $(".custom-file-input").on("change", function() {
+        let fileName = $(this).val().split("\\").pop();
+        $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+        that.encodeImageFileAsURL(this)
+    });
+  }
+
   createToDo() {
       if (this.checkEvent()) {
           this.addNewToDo(this.inputData)
@@ -150,30 +125,35 @@ export class ToDoComponent implements OnInit {
   }
 
   addNewToDo(data: Object) {
-      console.log(data)
       this.data.forEach(element => {
           if (element.name.toLowerCase() == "todo") {
               element.details.push(data)
               setTimeout(() => {
-                  localStorage.setItem("todoData", JSON.stringify(this.data));
+                  try{
+                      localStorage.setItem("todoData", JSON.stringify(this.data));
+                      this.toast.success("To do item created!");
+                  }catch(e){
+                      this.toast.warning("Maximum storage capacity reached!")
+                  }
                   this.data = JSON.parse(localStorage.getItem("todoData"));
                   $('#exampleModal').modal('hide');
+                  $("#customFile").val("");
                   this.inputData = {
                       "heading": "",
                       "image": "",
-                      "date": this.today,
+                      "date": "",
                       "files": [],
                       "users": [1],
                       "priority": 1,
                       "comments": []
                   }
-                  this.toast.success("To do item created!");
+                  this.formError = false;
               }, 0);
           }
       });
   }
 
-  delete(x, i) {
+  delete(x:any, i:any) {
       this.data[x].details.splice(i, 1);
       setTimeout(() => {
           localStorage.setItem("todoData", JSON.stringify(this.data));

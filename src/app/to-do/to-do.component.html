@@ -1,170 +1,140 @@
 <div class="container-fluid c-main-container">
-    <div class="container-fluid c-mtd">
-        <div class="row head-row">
-            <div class="d-flex">
-                <div class="c-star"><i class="fa fa-star-o" aria-hidden="true"></i></div>
-                <div class="tabs mr-8" ><i class="fa fa-user-o" aria-hidden="true"></i> 6 people</div>
-                <div class="tabs mr-8 warning-tab"><i class="fa fa-clock-o" aria-hidden="true"></i> 2 days left</div>
-            </div>
-            <div class="d-flex">
-                <div class="c-show-task">Show my tasks only</div>
-                <div class="custom-control custom-switch">
-                    <span class="custom-control-label" for="customSwitch1"></span>
-                    <input type="checkbox" class="custom-control-input" id="customSwitch1">
-                </div>
-            </div>
+  <div class="container-fluid c-mtd">
+     <div class="row head-row">
+        <div class="d-flex">
+           <div class="c-star"><i class="fa fa-star-o" aria-hidden="true"></i></div>
+           <div class="tabs mr-8" ><i class="fa fa-user-o" aria-hidden="true"></i> 6 people</div>
+           <div class="tabs mr-8 warning-tab"><i class="fa fa-clock-o" aria-hidden="true"></i> 2 days left</div>
         </div>
-    </div>
-    <div class="row" cdkDropListGroup>
-        <div class="col-lg-3 col-sm-6 list-container" *ngFor="let box of data; let x = index;">
-            <div 
-                cdkDropList
-                [cdkDropListData]="box.details"
-                class="card parent-box"
-                (cdkDragStarted)="drag($event, i)"
-                (cdkDropListDropped)="drop($event,i)"
-                id="cdk-drop-list-{{x}}">
-                <div *ngIf="box.record" class="card-rec"><i class="fa fa-circle" aria-hidden="true"></i> REC</div>
-                <div class="card-options"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></div>
-                <h5>{{box.name}}</h5>
-                <div class="card child-box" *ngFor="let item of box.details; let i = index;" cdkDrag>
-                    <div (click)="delete(x,i)" class="card-del"><i class="fa fa-times" aria-hidden="true"></i></div>
-                    <div [ngClass]="item.priority === 1 ? 'left-border-low' : item.priority === 2 ? 'left-border-medium' : 'left-border-high'">
-                       <div id="child-box-heading-{{i}}" class="child-box-heading">
-                           <!-- <div class="vl"></div> -->
-                           {{item.heading}}
-                       </div>
-                   </div>
-                   <div *ngIf="item.image">
-                       <img class="card-image" src="{{item.image}}" alt="">
-                   </div>
-                    <div class="row no-gutters child-box-tabs">
-                        <div *ngIf="!(box.name == 'Done')" class="tabs">
-                            <i class="fa fa-bell-o" aria-hidden="true"></i>
-                            {{item.date | date:'MMM, d'}}
-                        </div>
-                        <div *ngIf="box.name == 'Done'" class="tabs tabs-green">
-                            <i class="fa fa-check" aria-hidden="true"></i>
-                            {{item.date | date:'MMM, d'}}
-                        </div>
-                        <div *ngIf="item.comments?.length > 0" class="tabs">
-                            <i class="fa fa-comment-o" aria-hidden="true"></i>
-                            {{item.comments.length}}
-                        </div>
-                        <div *ngIf="item.files?.length > 0" class="tabs">
-                            <i class="fa fa-paperclip" aria-hidden="true"></i>
-                            {{item.files.length}}
-                        </div>
-                        <div *ngIf="item.users?.length > 0" class="to-right">
-                            <img *ngFor="let user of item.users" class="user-image" src="assets/avatars/{{user}}.jpg" alt="">
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="d-flex">
+           <div class="c-show-task">Show my tasks only</div>
+           <div class="custom-control custom-switch">
+              <span class="custom-control-label" for="customSwitch1"></span>
+              <input type="checkbox" class="custom-control-input" id="customSwitch1">
+           </div>
         </div>
-    </div>
+     </div>
+  </div>
+  <div class="row" cdkDropListGroup>
+     <div class="col-lg-3 col-sm-6 list-container" *ngFor="let box of data; let x = index;">
+        <div 
+        cdkDropList
+        [cdkDropListData]="box.details"
+        class="card parent-box"
+        (cdkDropListDropped)="drop($event)"
+        id="cdk-drop-list-{{x}}">
+        <div *ngIf="box.record" class="card-rec"><i class="fa fa-circle" aria-hidden="true"></i> REC</div>
+        <div class="card-options"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></div>
+        <h5>{{box.name}}</h5>
+        <div class="card child-box" *ngFor="let item of box.details; let i = index;" cdkDrag>
+           <div (click)="delete(x,i)" class="card-del"><i class="fa fa-times" aria-hidden="true"></i></div>
+           <div [ngClass]="item.priority === 1 ? 'left-border-low' : item.priority === 2 ? 'left-border-medium' : 'left-border-high'">
+              <div id="child-box-heading-{{i}}" class="child-box-heading">
+                 <!-- <div class="vl"></div> -->
+                 {{item.heading}}
+              </div>
+           </div>
+           <div *ngIf="item.image">
+              <img class="card-image" src="{{item.image}}" alt="">
+           </div>
+           <div class="row no-gutters child-box-tabs">
+              <div *ngIf="!(box.name == 'Done')" class="tabs">
+                 <i class="fa fa-bell-o" aria-hidden="true"></i>
+                 {{item.date | date:'MMM, d'}}
+              </div>
+              <div *ngIf="box.name == 'Done'" class="tabs tabs-green">
+                 <i class="fa fa-check" aria-hidden="true"></i>
+                 {{item.date | date:'MMM, d'}}
+              </div>
+              <div *ngIf="item.comments?.length > 0" class="tabs">
+                 <i class="fa fa-comment-o" aria-hidden="true"></i>
+                 {{item.comments.length}}
+              </div>
+              <div *ngIf="item.files?.length > 0" class="tabs">
+                 <i class="fa fa-paperclip" aria-hidden="true"></i>
+                 {{item.files.length}}
+              </div>
+              <div *ngIf="item.users?.length > 0" class="to-right">
+                 <img *ngFor="let user of item.users" class="user-image" src="assets/avatars/{{user}}.jpg" alt="">
+              </div>
+           </div>
+        </div>
+     </div>
+  </div>
+</div>
 </div>
 <div class="floating-btn" data-toggle="modal" data-target="#exampleModal">
-    <button class="btn add-btn">
-        <img style="height: 20px;" src="assets/plus.svg" alt="">
-    </button>
+  <button class="btn add-btn">
+  <img style="height: 20px;" src="assets/plus.svg" alt="">
+  </button>
 </div>
 <!-- Button trigger modal -->
-  
-  <!-- Modal -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" [ngClass]="inputData.priority == 1 ? 'priority-1' : inputData.priority == 2 ? 'priority-2' : inputData.priority == 3 ? 'priority-3' : ''" role="document">
-      <div class="modal-content">
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" [ngClass]="inputData.priority == 1 ? 'priority-1' : inputData.priority == 2 ? 'priority-2' : inputData.priority == 3 ? 'priority-3' : ''" role="document">
+     <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">New ToDo</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
+           <h5 class="modal-title" id="exampleModalLabel">New ToDo</h5>
+           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+           <span aria-hidden="true">&times;</span>
+           </button>
         </div>
         <div class="modal-body">
-                
-                <div class="form-group">
-                  <label for="description">Description *</label>
-                  <input [(ngModel)]="inputData.heading" type="text" class="form-control" id="description" aria-describedby="emailHelp" placeholder="Enter description">
-                </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="custom-file">
-                            <input type="file" accept="image/*" class="custom-file-input" id="customFile" >
-                            <label class="custom-file-label" for="customFile">Choose image</label>
-                          </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="priority">Priority *</label>
-                              <ng-select
-                              [items]="priority"
-                              [closeOnSelect]="true"
-                              [searchable]="false"
-                              bindLabel="name"
-                              bindValue="id"
-                              placeholder=""
-                              [(ngModel)]="inputData.priority"
-                              id="priority" ></ng-select>
-                          </div>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="image">Schedule *</label>
-                            <input [(ngModel)]="inputData.date" type="date" class="form-control" id="image" placeholder="Image URL">
-                          </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="exampleFormControlSelect2">Assign to *</label>
-                              <ng-select
-                              [items]="users"
-                              [multiple]="true"
-                              [closeOnSelect]="false"
-                              [searchable]="false"
-                              bindLabel="name"
-                              bindValue="id"
-                              placeholder="Select users"
-                              [(ngModel)]="inputData.users"
-                              id="exampleFormControlSelect2" ></ng-select>
-                          </div>
-                    </div>
-                </div>
+           <div class="form-group">
+              <label for="description">Description *</label>
+              <input [(ngModel)]="inputData.heading" type="text" class="form-control" id="description" aria-describedby="emailHelp" placeholder="Enter description">
+           </div>
+           <div class="row">
+              <div class="col-md-6">
+                 <div class="custom-file">
+                    <input type="file" accept="image/*" class="custom-file-input" [(ngModel)]="file" id="customFile" >
+                    <label class="custom-file-label" for="customFile">Choose image</label>
+                 </div>
+              </div>
+              <div class="col-md-6">
+                 <div class="form-group">
+                    <label for="priority">Priority *</label>
+                    <ng-select
+                    [items]="priority"
+                    [closeOnSelect]="true"
+                    [searchable]="false"
+                    bindLabel="name"
+                    bindValue="id"
+                    placeholder=""
+                    [(ngModel)]="inputData.priority"
+                    id="priority" ></ng-select>
+                 </div>
+              </div>
+           </div>
+           <div class="row">
+              <div class="col-md-6">
+                 <div class="form-group">
+                    <label for="image">Schedule *</label>
+                    <input [(ngModel)]="inputData.date" type="date" class="form-control" id="image" placeholder="Image URL">
+                 </div>
+              </div>
+              <div class="col-md-6">
+                 <div class="form-group">
+                    <label for="exampleFormControlSelect2">Assign to *</label>
+                    <ng-select
+                    [items]="users"
+                    [multiple]="true"
+                    [closeOnSelect]="false"
+                    [searchable]="false"
+                    bindLabel="name"
+                    bindValue="id"
+                    placeholder="Select users"
+                    [(ngModel)]="inputData.users"
+                    id="exampleFormControlSelect2" ></ng-select>
+                 </div>
+              </div>
+           </div>
         </div>
         <div class="modal-footer">
-            <div *ngIf="formError" class="error-msg">Fileds marked with '*' are required !</div>
-          <button type="button" class="btn btn-secondary" (click)="formError = false;" data-dismiss="modal">Not now</button>
-          <button type="button" class="btn btn-primary" (click)="createToDo()">Create</button>
+           <div *ngIf="formError" class="error-msg">Fileds marked with '*' are required !</div>
+           <button type="button" class="btn btn-secondary" (click)="formError = false;" data-dismiss="modal">Not now</button>
+           <button type="button" class="btn btn-primary" (click)="createToDo()">Create</button>
         </div>
-      </div>
-    </div>
+     </div>
   </div>
-
-<!-- <div cdkDropListGroup>
-    <div class="example-container">
-      <h2>To do</h2>
-  
-      <div
-        cdkDropList
-        [cdkDropListData]="todo"
-        class="example-list"
-        (cdkDropListDropped)="drop($event)">
-        <div class="example-box" *ngFor="let item of todo" cdkDrag>{{item}}</div>
-      </div>
-    </div>
-  
-    <div class="example-container">
-      <h2>Done</h2>
-  
-      <div
-        cdkDropList
-        [cdkDropListData]="done"
-        class="example-list"
-        (cdkDropListDropped)="drop($event)">
-        <div class="example-box" *ngFor="let item of done" cdkDrag>{{item}}</div>
-      </div>
-    </div>
-  </div> -->
+</div>
