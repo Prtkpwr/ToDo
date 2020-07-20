@@ -130,6 +130,7 @@
     margin-top:86px;
     padding-right: 30px;
     padding-left: 30px;
+    width: calc(100vw - 50px) !important;
 }
 .c-mtd{
     margin: 24px 0px;
@@ -137,6 +138,10 @@
 .c-star{
     color: #7C8A9F; 
     margin-right:8px;
+}
+label{
+    font-size: 0.83rem;
+    
 }
 
 /* angular drag-drop styles */
